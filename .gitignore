@@ -1,0 +1,10 @@
+/.idea
+.idea/
+.grunt
+.lock-wscript
+
+build/Release
+node_modules
+assets
+.npm
+.node_repl_history
