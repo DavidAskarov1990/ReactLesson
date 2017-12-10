@@ -2,6 +2,7 @@ const path = require("path");
 const webpack = require("webpack");
 const assetsPath = path.join(__dirname, "..", "public", "assets");
 const publicPath = "/assets/";
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
     name: "browser",
@@ -45,14 +46,6 @@ module.exports = {
                 query: {
                     presets: ['react-hmre']
                 }
-            },
-            {
-                test: /\.scss$/,
-                use: [
-                    'style-loader',
-                    'css-loader',
-                    'sass-loader'
-                ]
             }
         ]
     },
@@ -74,7 +67,7 @@ module.exports = {
         /**
          *  Плагин которые не обваливает webpack при компиляции в случае ошибки в коде
          * */
-        new webpack.NoEmitOnErrorsPlugin(),
+        new webpack.NoErrorsPlugin(),
 
         /**
          * Плагин который создает глобальные переменные, которые в процессе работы могут быть изменены

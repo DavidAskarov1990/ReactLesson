@@ -4,7 +4,27 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "rimraf lib public/assets",
+    "server": "better-npm-run server",
+    "server:dev": "better-npm-run server:dev",
+    "start": "npm run server",
+    "start:dev": "npm run server:dev"
+  },
+  "betterScripts": {
+    "server": {
+      "command": "node devStart.js",
+      "env": {
+        "NODE_ENV": "production",
+        "MIN_EXT": ".min"
+      }
+    },
+    "server:dev": {
+      "command": "node devStart.js",
+      "env": {
+        "NODE_ENV": "development"
+      }
+    }
   },
   "author": "",
   "license": "ISC",
@@ -17,6 +37,7 @@
     "crypto": "0.0.3",
     "express": "4.13.4",
     "express-session": "1.13.0",
+    "extract-text-webpack-plugin": "^3.0.2",
     "mongoose": "4.4.7",
     "passport": "0.3.2",
     "passport-local": "1.0.0",
@@ -38,6 +59,7 @@
     "babel-preset-react": "6.5.0",
     "babel-preset-react-hmre": "^1.1.1",
     "babel-register": "6.7.2",
+    "classnames": "^2.2.5",
     "css-loader": "^0.28.7",
     "detect-node": "^2.0.3",
     "redux-logger": "2.6.1",
